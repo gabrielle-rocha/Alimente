@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--CONFIGURAÇÃO PARA UM SITE RESPONSIVO-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!--CRIAÇÃO DO FORMULÁRIO JÁ CENTRALIZADO-->
+    <div class="container-fluid h-100 p-0">
+        <div class="row h-100 no-gutters">
+            <!-- COLUNA PARA O FORMULÁRIO-->
+            <div class="col-md-6 form-area d-flex flex-column align-items-center justify-content-center">
+                <h2>Doador, seja bem-vindo!</h2>
+                <div class="form-box p-4 rounded shadow">
+                    <!--INICIANDO A CRIAÇÃO DOS DADOS DO FORMULÁRIO -->
+                    <form>
+                        <!--nome -->
+                        <p>Nome:</p>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Digite aqui">
+                        </div>
+                        <!--email-->
+                        <p>Email:</p>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="seunome@gmail.com">
+                        </div>
+                        <!--senha-->
+                        <p>Senha:</p>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Digite aqui">
+                        </div>
+                        <!--celular-->
+                        <p>Celular:</p>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="(99) 99999-9999">
+                        </div>
+                        <!--data de nascimento-->
+                        <p>Data de nascimento:</p>
+                        <div class="form-group">
+                            <input type="date" class="form-control">
+                        </div>
+                        <!--CRIAÇÃO DO BOTÃO CADASTRAR -->
+                        <button type="submit" class="btn btn-sm custom-button">Cadastrar</button>
+                    </form>
+                </div>
+                <br>
+                <!-- LINK QUE FICA EMBAIXO DO FORMULÁRIO-->
+                <a id="ongLink" href="ONG/index.html" class="login-link">Caso seja uma ONG, clique aqui</a>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="notificacao">
+                    <label class="form-check-label" for="notificacao">Receber notificações e atualizações</label>
+                </div>
+            </div>
+
+            <!--COLUNA PARA A LOGO "ALIMENTE"-->
+            <div class="col-md-6 img-area d-flex align-items-center justify-content-center p-0">
+                <img src="images/alimentelogo.png" alt="Imagem" class="img-fluid w-100 h-100">
+            </div>
+        </div>
+    </div>
+
+    <!--SCRIPT PARA O EFEITO DA IMAGEM (PARA A TROCA DE UMA PÁGINA PARA OUTRA)-->
+    <script>
+        document.getElementById('ongLink').addEventListener('click', function(e) {
+            e.preventDefault(); // Impede o link de redirecionar imediatamente
+    
+            const imgArea = document.querySelector('.img-area');
+            imgArea.classList.add('move-left');
+    
+            // Aguarda a animação terminar antes de redirecionar
+            setTimeout(function() {
+                window.location.href = 'ONG/index.html'; // Redireciona para a página de login da ONG
+            }, 500); // O tempo deve ser igual à duração da animação (0.5s)
+        });
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
