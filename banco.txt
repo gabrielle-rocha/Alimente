@@ -1,0 +1,300 @@
+-- Banco de dados: `bdalimente`
+--
+
+-- --------------------------------------------------------
+
+-- Estrutura da tabela `telefonedoador`
+CREATE TABLE `telefonedoador` (
+  `codTelefoneDoador` int(11) NOT NULL,
+  `telefoneDoador` char(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Extraindo dados da tabela `telefonedoador`
+INSERT INTO `telefonedoador` (`codTelefoneDoador`, `telefoneDoador`) VALUES
+(1, '11969543069');
+
+-- --------------------------------------------------------
+
+-- Estrutura da tabela `telefoneong`
+CREATE TABLE `telefoneong` (
+  `codTelefoneOng` int(11) NOT NULL,
+  `telefoneOngs` char(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+-- Estrutura da tabela `administrador`
+CREATE TABLE `administrador` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Extraindo dados da tabela `administrador`
+INSERT INTO `administrador` (`id`, `email`, `senha`) VALUES
+(1, 'admin@admin', 'adm123');
+
+-- --------------------------------------------------------
+
+-- Estrutura da tabela `cadastrodoador`
+CREATE TABLE `cadastrodoador` (
+  `codDoador` int(11) NOT NULL,
+  `nomeDoador` varchar(255) DEFAULT NULL,
+  `cpfDoador` char(11) DEFAULT NULL,
+  `dataNasc` date DEFAULT NULL,
+  `logradouroD` varchar(255) DEFAULT NULL,
+  `bairroDoador` varchar(255) DEFAULT NULL,
+  `cepDoador` char(8) DEFAULT NULL,
+  `numeroDoador` char(10) DEFAULT NULL,
+  `cidadeDoador` varchar(255) DEFAULT NULL,
+  `avaliarOng` varchar(255) DEFAULT NULL,
+  `emailDoador` varchar(255) DEFAULT NULL,
+  `senhaDoador` varchar(255) DEFAULT NULL,
+  `dataCadastroDoador` date DEFAULT NULL,
+  `codTelefoneDoador` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Extraindo dados da tabela `cadastrodoador`
+INSERT INTO `cadastrodoador` (`codDoador`, `nomeDoador`, `cpfDoador`, `dataNasc`, `logradouroD`, `bairroDoador`, `cepDoador`, `numeroDoador`, `cidadeDoador`, `avaliarOng`, `emailDoador`, `senhaDoador`, `dataCadastroDoador`, `codTelefoneDoador`) VALUES
+(1, 'bel', NULL, '2007-07-23', NULL, NULL, NULL, NULL, NULL, NULL, 'bibisilva2502@gmail.com', '2222', '2021-07-10', 1);
+
+-- --------------------------------------------------------
+
+-- Estrutura da tabela `itemdoacao`
+CREATE TABLE `itemdoacao` (
+  `codItemDoacao` int(11) NOT NULL,
+  `codDoador` int(11) DEFAULT NULL,
+  `categoriaItem` varchar(255) NOT NULL,
+  `descItem` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Extraindo dados da tabela `itemdoacao`
+INSERT INTO `itemdoacao` (`codItemDoacao`, `codDoador`, `categoriaItem`, `descItem`) VALUES
+(1, NULL, 'limpeza', 'rodinho');
+
+-- --------------------------------------------------------
+
+-- Estrutura da tabela `ongs`
+CREATE TABLE `ongs` (
+  `codOng` int(11) NOT NULL,
+  `nomeResponsavel` varchar(255) DEFAULT NULL,
+  `razaoSocialOng` varchar(255) DEFAULT NULL,
+  `dataDoacao` date DEFAULT NULL,
+  `enderecoOng` varchar(255) DEFAULT NULL,
+  `logradouroOng` varchar(255) DEFAULT NULL,
+  `bairroOng` varchar(255) DEFAULT NULL,
+  `cepOng` char(8) DEFAULT NULL,
+  `numeroOng` char(10) DEFAULT NULL,
+  `cidadeOng` varchar(255) DEFAULT NULL,
+  `cnpjOng` char(14) DEFAULT NULL,
+  `statusPrestacaoConta` varchar(255) DEFAULT NULL,
+  `codDoacao` int(11) DEFAULT NULL,
+  `codUsuario` int(11) DEFAULT NULL,
+  `codTelefoneOng` int(11) DEFAULT NULL,
+  `avaliarOng` varchar(255) DEFAULT NULL,
+  `emailOng` varchar(255) DEFAULT NULL,
+  `estadoOng` varchar(255) DEFAULT NULL,
+  `formaDoacao` varchar(255) DEFAULT NULL,
+  `senhaOng` varchar(255) DEFAULT NULL,
+  `dataCadastroOng` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Extraindo dados da tabela `ongs`
+INSERT INTO `ongs` (`codOng`, `nomeResponsavel`, `razaoSocialOng`, `dataDoacao`, `enderecoOng`, `logradouroOng`, `bairroOng`, `cepOng`, `numeroOng`, `cidadeOng`, `cnpjOng`, `statusPrestacaoConta`, `codDoacao`, `codUsuario`, `codTelefoneOng`, `avaliarOng`, `emailOng`, `estadoOng`, `formaDoacao`, `senhaOng`, `dataCadastroOng`) VALUES
+(1, 'bel', 'sexo', NULL, NULL, NULL, 'guaianzes', NULL, NULL, 'são paulo', NULL, NULL, NULL, NULL, NULL, NULL, 'bibisilva2502@gmail.com', 'SP', 'Alimento', '2511', '2020-06-20'),
+(2, 'bel', 'sexo', NULL, NULL, NULL, 'guaianzes', NULL, NULL, 'são paulo', NULL, NULL, NULL, NULL, NULL, NULL, 'bibisilva2502@gmail.com', 'SP', 'Alimento', '2511', '2020-06-20');
+
+-- --------------------------------------------------------
+
+-- Estrutura da tabela `campanhadoacao`
+CREATE TABLE `campanhadoacao` (
+  `codCampanhaDoacao` int(11) NOT NULL,
+  `objetivoCampanha` varchar(255) DEFAULT NULL,
+  `horarioDoacao` char(5) DEFAULT NULL,
+  `enderecoOng` varchar(255) DEFAULT NULL,
+  `telefoneOngs` char(15) DEFAULT NULL,
+  `codOng` int(11) DEFAULT NULL,
+  `codItemDoacao` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+-- Estrutura da tabela `doacoes`
+CREATE TABLE `doacoes` (
+  `codDoacao` int(11) NOT NULL,
+  `codOng` int(11) DEFAULT NULL,
+  `enderecoOng` varchar(255) DEFAULT NULL,
+  `codItemDoacao` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+-- Estrutura da tabela `metodopagamento`
+CREATE TABLE `metodopagamento` (
+  `codMetodoPagamento` int(11) NOT NULL,
+  `pixPagamento` int(11) DEFAULT NULL,
+  `boletoPagamento` int(11) DEFAULT NULL,
+  `cartaoPagamento` int(11) DEFAULT NULL,
+  `codItemDoacao` int(11) DEFAULT NULL,
+  `statusPrestacaoConta` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `administrador`
+--
+ALTER TABLE `administrador`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `cadastrodoador`
+--
+ALTER TABLE `cadastrodoador`
+  ADD PRIMARY KEY (`codDoador`),
+  ADD KEY `codTelefoneDoador` (`codTelefoneDoador`);
+
+--
+-- Índices para tabela `telefonedoador`
+--
+ALTER TABLE `telefonedoador`
+  ADD PRIMARY KEY (`codTelefoneDoador`);
+
+--
+-- Índices para tabela `telefoneong`
+--
+ALTER TABLE `telefoneong`
+  ADD PRIMARY KEY (`codTelefoneOng`);
+
+--
+-- Índices para tabela `itemdoacao`
+--
+ALTER TABLE `itemdoacao`
+  ADD PRIMARY KEY (`codItemDoacao`),
+  ADD KEY `codDoador` (`codDoador`);
+
+--
+-- Índices para tabela `ongs`
+--
+ALTER TABLE `ongs`
+  ADD PRIMARY KEY (`codOng`),
+  ADD KEY `codTelefoneOng` (`codTelefoneOng`);
+
+--
+-- Índices para tabela `campanhadoacao`
+--
+ALTER TABLE `campanhadoacao`
+  ADD PRIMARY KEY (`codCampanhaDoacao`);
+
+--
+-- Índices para tabela `doacoes`
+--
+ALTER TABLE `doacoes`
+  ADD PRIMARY KEY (`codDoacao`);
+
+--
+-- Índices para tabela `metodopagamento`
+--
+ALTER TABLE `metodopagamento`
+  ADD PRIMARY KEY (`codMetodoPagamento`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT para tabela `telefonedoador`
+--
+ALTER TABLE `telefonedoador`
+  MODIFY `codTelefoneDoador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT para tabela `telefoneong`
+--
+ALTER TABLE `telefoneong`
+  MODIFY `codTelefoneOng` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT para tabela `administrador`
+--
+ALTER TABLE `administrador`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT para tabela `cadastrodoador`
+--
+ALTER TABLE `cadastrodoador`
+  MODIFY `codDoador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT para tabela `itemdoacao`
+--
+ALTER TABLE `itemdoacao`
+  MODIFY `codItemDoacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT para tabela `ongs`
+--
+ALTER TABLE `ongs`
+  MODIFY `codOng` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT para tabela `campanhadoacao`
+--
+ALTER TABLE `campanhadoacao`
+  MODIFY `codCampanhaDoacao` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT para tabela `doacoes`
+--
+ALTER TABLE `doacoes`
+  MODIFY `codDoacao` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT para tabela `metodopagamento`
+--
+ALTER TABLE `metodopagamento`
+  MODIFY `codMetodoPagamento` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para a tabela `cadastrodoador`
+--
+ALTER TABLE `cadastrodoador`
+  ADD CONSTRAINT `cadastrodoador_ibfk_1` FOREIGN KEY (`codTelefoneDoador`) REFERENCES `telefonedoador` (`codTelefoneDoador`);
+
+--
+-- Restrições para a tabela `itemdoacao`
+--
+ALTER TABLE `itemdoacao`
+  ADD CONSTRAINT `itemdoacao_ibfk_1` FOREIGN KEY (`codDoador`) REFERENCES `cadastrodoador` (`codDoador`);
+
+--
+-- Restrições para a tabela `ongs`
+--
+ALTER TABLE `ongs`
+  ADD CONSTRAINT `ongs_ibfk_1` FOREIGN KEY (`codTelefoneOng`) REFERENCES `telefoneong` (`codTelefoneOng`);
+
+--
+-- Disparadores `TRIGGERS`
+--
+
+DELIMITER $$
+CREATE TRIGGER after_insert_cadastroDoador
+AFTER INSERT ON `cadastrodoador` FOR EACH ROW
+BEGIN
+    INSERT INTO notificacoes (mensagem, data) 
+    VALUES (CONCAT('Novo doador cadastrado: ', NEW.nomeDoador), NOW());
+END$$
+
+CREATE TRIGGER after_insert_ongs
+AFTER INSERT ON `ongs` FOR EACH ROW
+BEGIN
+    INSERT INTO notificacoes (mensagem, data) 
+    VALUES (CONCAT('Nova ONG cadastrada: ', NEW.razaoSocialOng), NOW());
+END$$
+DELIMITER ;

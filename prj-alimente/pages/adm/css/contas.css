@@ -1,0 +1,119 @@
+:root {
+    --preto: #000;
+    --branco: #fff;
+    --cinza-claro: #f4f4f4;
+    --cinza-escuro: #ddd;
+    --verde-destaque: rgb(117, 169, 195);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--branco);
+    color: var(--preto);
+}
+
+.navbar {
+    background: linear-gradient(to right, rgb(133, 230, 178), rgb(78, 104, 134)); /* Gradiente de verde escuro para cinza azulado */
+    left: 0;
+    top: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.navbar i {
+    font-size: 60px;
+    color: var(--branco);
+    margin-right: 300px; 
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    font-size: 50px;
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    background-color: var(--branco);
+    border-radius: 20px;
+    border: 1px solid var(--cinza-escuro);
+    padding: 5px 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-bar i {
+    color: var(--cinza-escuro);
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 150px;
+    width: 80%;
+}
+
+.card {
+    background-color: var(--cinza-claro);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    width: 240px; 
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-pic {
+    width: 120px; 
+    height: 120px;
+    background-color: var(--cinza-escuro);
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.btn-visualizar {
+    background-color: var(--verde-destaque);
+    border: none;
+    border-radius: 5px;
+    color: var(--branco);
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-visualizar:hover {
+    background-color: darken(var(--verde-destaque), 10%);
+}

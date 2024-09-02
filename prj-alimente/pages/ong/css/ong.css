@@ -1,0 +1,80 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden; /* Evita barra de rolagem horizontal */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-fluid {
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+/*CONFIGURAÇÃO PARA DEFINIR O TAMANHO DA LINHA*/
+.row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/*CONFIGURAÇÃO PARA OS TAMANHOS (FORMULÁRIO E IMAGEM DA LOGO)*/
+.img-area, .form-area {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    margin: 0; 
+}
+
+/*COR DE FUNDO DA LOGO*/
+.img-area {
+    background: linear-gradient(to right, #cedce7, #d1f4c5);
+    flex: 1;
+}
+
+/*TÍTULO DO FORMULÁRIO*/
+.form-area h2 {
+    font-size: 30px;
+    font-weight: 530;
+    color: #333;
+}
+
+/*CONFIGURAÇÃO PARA A ÁREA DO FORMULÁRIO*/
+.form-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+/*CONFIGURAÇÃO PARA O BOX DO FORMULRÁRIO*/
+.form-box {
+    background: rgb(255, 255, 255);
+    padding: 15px; /* Reduzindo o padding */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; 
+    border: 2px solid #cedce7;
+}
+
+/*CONFIGURAÇÃO PARA O BOTÃO DO FORMULÁRIO*/
+.custom-button {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none; 
+    width: 60%; 
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 0; 
+    border-radius: 5px; 
+}
+
+/*CONFIGURAÇÃO PARA A MUDANÇA NA COR DO BOTÃO*/
+.custom-button:hover {
+    background: linear-gradient(to right, #cedce7, #d1f4c5);
+}

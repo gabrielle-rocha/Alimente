@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!--tag de responsividade-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimente - Login</title>
+    <link rel="icon" type="image/x-icon" href="img/icon.png">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+        <div class="imglogo">
+             <img src="img/alimentelogo.png">
+        </div>
+        </div>
+        <div class="right-side">
+            <div class="login-box">
+                <h2>Login</h2>
+                <form action="process_login.php" method="POST">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Entre com seu Email" required>
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Sua Senha" required>
+                    <button type="submit">Entrar</button>
+                </form>
+                <div class="options">
+                    <a href="#">Esqueceu a senha?</a>
+                    <span>ou</span>
+                    <div class="social-login">
+                        <a href="#"><img src="img/insta.png" alt="Instagram"></a>
+                        <a href="#"><img src="img/twitter.png" alt="X"></a>
+                        <a href="#"><img src="img/google.png" alt="Google"></a>
+                    </div>
+                </div>
+                <!-- link para ir p outra página (cadastro)-->
+                <a class="register" href="../cadastro/index.html">Cadastre-se</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
